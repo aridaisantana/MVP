@@ -11,7 +11,7 @@ package loging.model;
  */
 public interface Account {
     
-    String getUser();
-    String getPassword();
+    public String getUser();
+    public String getPassword();
     
 }

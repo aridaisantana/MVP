@@ -5,6 +5,8 @@
  */
 package loging.presenter;
 
+
+import java.util.List;
 import loging.model.Account;
 import loging.view.Display;
 import loging.view.swing.SwingDisplay;
@@ -15,10 +17,10 @@ import loging.view.swing.SwingDisplay;
  */
 public class Presenter {
     
-    private Account account;
+    private List<Account> account;
     private Display display;
 
-    public Presenter(Account account, Display display) {
+    public Presenter(List <Account> account, Display display) {
         this.account = account;
         this.display = display;
     }
@@ -26,9 +28,12 @@ public class Presenter {
     public void login( String name, String pass){
         String result = "Something went wrong";
         
-        if (account.getUser().equals(name) && account.getPassword().equals(pass)){
+        for (Account a : account) {
+            if (a.getUser().equals(name) && a.getPassword().equals(pass)){
             result = "Loging succesful";
+            }
         }
+     
         
         display.updateStatusLabel(result);
     }

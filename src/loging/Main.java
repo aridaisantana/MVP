@@ -5,10 +5,12 @@
  */
 package loging;
 
+import java.util.List;
 import loging.model.Account;
 import loging.model.DefaultAccount;
+import loging.persistance.AccountsLoader;
+import loging.persistance.db.AccountsLoaderDB;
 import loging.presenter.Presenter;
-import loging.view.Display;
 import loging.view.swing.SwingDisplay;
 
 /**
@@ -22,8 +24,9 @@ public class Main {
      */
     public static void main(String[] args) {
         SwingDisplay view = new SwingDisplay();
-        Account account = new DefaultAccount("Pepe","1234");
-        view.setPresenter(new Presenter(account, view));
+        AccountsLoader loader = new AccountsLoaderDB();
+        List <Account> accounts = loader.accounts();
+        view.setPresenter(new Presenter(accounts, view));
         view.display();
     }
     
