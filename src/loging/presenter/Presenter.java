@@ -17,9 +17,10 @@ public class Presenter {
     
     private Account account;
     private Display display;
-    
-    public Presenter(Account account) {
+
+    public Presenter(Account account, Display display) {
         this.account = account;
+        this.display = display;
     }
     
     public void login( String name, String pass){
@@ -29,7 +30,7 @@ public class Presenter {
             result = "Loging succesful";
         }
         
-        SwingDisplay.updateStatusLabel(result);
+        display.updateStatusLabel(result);
     }
     
 }

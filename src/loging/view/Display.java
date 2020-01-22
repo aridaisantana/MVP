@@ -5,6 +5,8 @@
  */
 package loging.view;
 
+import loging.presenter.Presenter;
+
 /**
  *
  * @author usuario
@@ -12,4 +14,7 @@ package loging.view;
 public interface Display {
     
     public void display();
+
+    public void updateStatusLabel(String text);
+
 }
